@@ -10,7 +10,8 @@ class SearchController < ApplicationController
 
       response = connection.get("nrel/alt-fuel-stations/v1/nearest.json?&location=80203&radius=6.0&fuel_type=ELEC,LPG&limit=10")
 
-      @stations = JSON.parse(response.body, symbolize_names: true)
+      @stations = Station.new(JSON.parse(response.body, symbolize_names: true))
+      #NEXT STEP - create a model that takes in the response and creates instances
     end
 
   end
