@@ -1,0 +1,13 @@
+<h2>10 Closest Stations within 6 miles:</h2>
+
+<div class="stations">
+  <%@stations.each do |station| %>
+  <ul class="station">
+    <li><h3 class="name"><%= station.name %>
+    <li><h3 class="address"><%= station.address %>
+    <li><h3 class="fuel_type"><%= station.fuel_type %>
+    <li><h3 class="distance"><%= station.distance %>
+    <li><h3 class="access_time"><%= station.access_time %>
+  </ul>
+
+</div>

@@ -1,4 +1,4 @@
-require 'rails_helper'
+  require 'rails_helper'
 
 feature "User can see closest stations" do
   scenario "it returns a list limited by radius, fuel_type" do
@@ -13,9 +13,8 @@ feature "User can see closest stations" do
       expect(current_path).to have_content("/search")  #had to look this one up!
       # Then I should see a list of the 10 closest stations within 6 miles sorted by distance
       expect(page).to have_content("10 Closest Stations")
-        # within_css do
-        # => count some repeated CSS element
-        # end
+      expect(page).to have_css(".station", count: 7)  #had to look this up
+
       # And the stations should be limited to Electric and Propane
       expect(page).to_not have_content("BD")
       expect(page).to_not have_content("CNG")
@@ -25,9 +24,13 @@ feature "User can see closest stations" do
 
       # And for each of the stations I should see Name, Address, Fuel Types, Distance, and Access Times
 
-      # within_css do
-      # => count some repeated CSS element
-      # end
+      within(first(".station")) do  #had to look this up
+        expect(page).to have_css(".name")
+        expect(page).to have_css(".address")
+        expect(page).to have_css(".fuel_type")
+        expect(page).to have_css(".distance")
+        expect(page).to have_css(".access_time")
+      end
 
     end #end vcr
   end

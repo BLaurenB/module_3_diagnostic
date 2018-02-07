@@ -1,0 +1,11 @@
+workflow - are checking that we're TDDing
+
+
+commit every 15 min - they want to see our process
+(or more when you finish part of a user story)
+
+
+start with a feature test.
+get the test to pass with simplest solutions (and note completion in commits)
+  - write the code in the view that you want to use
+  - get to work in controller, then refactor
