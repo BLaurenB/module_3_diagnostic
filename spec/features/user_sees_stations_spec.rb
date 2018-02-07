@@ -13,9 +13,12 @@ feature "User can see closest stations" do
       # And I click "Locate"
       click_button "Locate"
       # Then I should be on page "/search" with parameters visible in the url
-      expect(current_path).to be
+      expect(current_path).to have_content("/search")  #had to look this one up!
       # Then I should see a list of the 10 closest stations within 6 miles sorted by distance
+      expect(page).to have_content("10 closest Stations")
+      within_css do
 
+      end
       # And the stations should be limited to Electric and Propane
 
       # And for each of the stations I should see Name, Address, Fuel Types, Distance, and Access Times
